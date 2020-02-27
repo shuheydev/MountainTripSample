@@ -1,145 +1,218 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <ContentPage
+    x:Class="MountainTripTimeSample.Views.DetailsPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:MountainTripTimeSample"
     xmlns:PanCake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-    x:Class="MountainTripTimeSample.Views.DetailsPage">
-     
+    xmlns:local="clr-namespace:MountainTripTimeSample">
+
     <ContentPage.Content>
-       <Grid>
+        <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="*" /> 
-            </Grid.RowDefinitions>  
-            <ScrollView Grid.Row="0">   
+                <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <ScrollView Grid.Row="0">
                 <Grid Padding="30,50,30,0">
-                     <Grid.RowDefinitions>
+                    <Grid.RowDefinitions>
                         <RowDefinition Height="auto" />
                         <RowDefinition Height="auto" />
                         <RowDefinition Height="auto" />
-                        <RowDefinition Height="auto" /> 
+                        <RowDefinition Height="auto" />
                     </Grid.RowDefinitions>
-                    
+
                     <Label Grid.Row="0" HorizontalTextAlignment="Start">
-                           <Label.FormattedText>
-                                <FormattedString>
-                                   <Span Text="Pick up " FontSize="36" FontAttributes="Bold" />
-                                    <Span Text="mountain" FontSize="35"/> 
-                                </FormattedString>
-                            </Label.FormattedText>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span
+                                    FontAttributes="Bold"
+                                    FontSize="36"
+                                    Text="Pick up " />
+                                <Span FontSize="35" Text="mountain" />
+                            </FormattedString>
+                        </Label.FormattedText>
                     </Label>
 
-                    <ScrollView VerticalScrollBarVisibility="Never" 
-                              HeightRequest="365"
-                              Padding="0,70,0,0"
-                              Orientation="Horizontal">
-                        <StackLayout x:Name="mountainLayout"
-                                     Orientation="Horizontal"> 
-                        </StackLayout>
+                    <ScrollView
+                        Grid.Row="1"
+                        Padding="0,0,0,0"
+                        HeightRequest="365"
+                        Orientation="Horizontal"
+                        VerticalScrollBarVisibility="Never">
+                        <StackLayout x:Name="mountainLayout" Orientation="Horizontal" />
                     </ScrollView>
-                   
+
 
                     <Grid Grid.Row="2">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0" Text="$460" FontSize="30" FontAttributes="Bold" />
+                        <Label
+                            Grid.Column="0"
+                            FontAttributes="Bold"
+                            FontSize="30"
+                            Text="$460" />
 
-                        <StackLayout Grid.Column="1" HorizontalOptions="End" Orientation="Horizontal" VerticalOptions="Center">
-                            <Image Source="BusIcon"/>
-                            <Label Text="3d 20h"/>
+                        <StackLayout
+                            Grid.Column="1"
+                            HorizontalOptions="End"
+                            Orientation="Horizontal"
+                            VerticalOptions="Center">
+                            <Image Source="BusIcon" />
+                            <Label Text="3d 20h" />
                         </StackLayout>
 
-                       <StackLayout Grid.Column="2" HorizontalOptions="End" Orientation="Horizontal" VerticalOptions="Center">
-                            <Image Source="MsgIcon"/>
-                            <Label Text="35mi"/>
+                        <StackLayout
+                            Grid.Column="2"
+                            HorizontalOptions="End"
+                            Orientation="Horizontal"
+                            VerticalOptions="Center">
+                            <Image Source="MsgIcon" />
+                            <Label Text="35mi" />
                         </StackLayout>
                     </Grid>
 
                     <StackLayout Grid.Row="3">
-                        <Label TextColor="Silver" Text="The Rocky Mountains, also known as the Rockies, are a major mountain range located in western North America.&#10;"/>
-                        <Label LineHeight="1.4" Text="The Rocky Mountains stretch 3,000 km (1,900 mi) in straight-line distance from the northernmost part of British Columbia, in western Canada, to New Mexico in the Southwestern United States. &#10;&#10;Located within the North American Cordillera, the Rockies are distinct from the Pacific Coast Ranges, Cascade Range, and the Sierra Nevada, which all lie farther to the west.&#10;The Rocky Mountains formed 80 million to 55 million years ago during the Laramide orogeny, in which a number of plates began sliding underneath the North American plate.&#10;"/>
+                        <Label Text="The Rocky Mountains, also known as the Rockies, are a major mountain range located in western North America.&#10;" TextColor="Silver" />
+                        <Label LineHeight="1.4" Text="The Rocky Mountains stretch 3,000 km (1,900 mi) in straight-line distance from the northernmost part of British Columbia, in western Canada, to New Mexico in the Southwestern United States. &#10;&#10;Located within the North American Cordillera, the Rockies are distinct from the Pacific Coast Ranges, Cascade Range, and the Sierra Nevada, which all lie farther to the west.&#10;The Rocky Mountains formed 80 million to 55 million years ago during the Laramide orogeny, in which a number of plates began sliding underneath the North American plate.&#10;" />
                     </StackLayout>
 
                 </Grid>
-             </ScrollView>
+            </ScrollView>
 
-           <Frame Grid.Row="0" BackgroundColor="#ef5265" CornerRadius="20" HorizontalOptions="FillAndExpand" HeightRequest="30" VerticalOptions="End">
-            
-               <Grid VerticalOptions="Start">
-                  <Grid.ColumnDefinitions>
-                      <ColumnDefinition Width="*"/>
-                      <ColumnDefinition Width="*"/>
-                      <ColumnDefinition Width="*"/>
-                  </Grid.ColumnDefinitions>
-                 <Grid.RowDefinitions>
-                      <RowDefinition Height="AUTO"/>
-                  </Grid.RowDefinitions>
-                    
-                  <Button x:Name="MountainMenu" Grid.Column="0" ImageSource="MountainIcon" BackgroundColor="Transparent"  HeightRequest="80" TranslationY="-20" Clicked="MountainMenu_Clicked" WidthRequest="10">
-                           <VisualStateManager.VisualStateGroups>
-                            <VisualStateGroup Name="MenuPressed">
-                                <VisualState Name="PressedMenu">
-                                    <VisualState.Setters> 
-                                          <Setter Property="BackgroundColor" Value="#e5354b" />
-                                          <Setter Property="TranslationY" Value="-40" /> 
-                                    </VisualState.Setters>
-                                </VisualState>
-                                 <VisualState Name="UnPressedMenu">
-                                    <VisualState.Setters> 
-                                          <Setter Property="BackgroundColor" Value="Transparent" />
-                                          <Setter Property="TranslationY" Value="-20" /> 
-                                    </VisualState.Setters>
-                                </VisualState>
-                            </VisualStateGroup>
-                        </VisualStateManager.VisualStateGroups>
-                  </Button> 
+            <Frame
+                Grid.Row="1"
+                BackgroundColor="#ef5265"
+                HeightRequest="10"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="End">
 
-                  <Button x:Name="BusMenu" Grid.Column="1" ImageSource="BusIcon" HeightRequest="80" BackgroundColor="Transparent" Clicked="BusMenu_Clicked" TranslationY="-20" >
-                        <VisualStateManager.VisualStateGroups>
-                            <VisualStateGroup Name="MenuPressed">
-                                <VisualState Name="PressedMenu">
-                                    <VisualState.Setters> 
-                                          <Setter Property="BackgroundColor" Value="#e5354b" />
-                                          <Setter Property="TranslationY" Value="-40" /> 
-                                    </VisualState.Setters>
-                                </VisualState>
-                                 <VisualState Name="UnPressedMenu">
-                                    <VisualState.Setters> 
-                                          <Setter Property="BackgroundColor" Value="Transparent" />
-                                          <Setter Property="TranslationY" Value="-20" /> 
-                                    </VisualState.Setters>
-                                </VisualState>
-                            </VisualStateGroup>
-                        </VisualStateManager.VisualStateGroups>
-                  </Button> 
+                <Grid VerticalOptions="Start">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="AUTO" />
+                    </Grid.RowDefinitions>
 
-                  <Button x:Name="MsgMenu" Grid.Column="2" ImageSource="MsgIcon" HeightRequest="80" BackgroundColor="Transparent"  Clicked="MsgMenu_Clicked" TranslationY="-20" >
-                          <VisualStateManager.VisualStateGroups>
-                            <VisualStateGroup Name="MenuPressed">
-                                <VisualState Name="PressedMenu">
-                                    <VisualState.Setters> 
-                                          <Setter Property="BackgroundColor" Value="#e5354b" />
-                                          <Setter Property="TranslationY" Value="-40" /> 
-                                    </VisualState.Setters>
-                                </VisualState>
-                                 <VisualState Name="UnPressedMenu">
-                                    <VisualState.Setters> 
-                                          <Setter Property="BackgroundColor" Value="Transparent" />
-                                          <Setter Property="TranslationY" Value="-20" /> 
-                                    </VisualState.Setters>
-                                </VisualState>
-                            </VisualStateGroup>
-                        </VisualStateManager.VisualStateGroups>
-                  </Button> 
+                </Grid>
 
-              </Grid>
-                
-           </Frame>
-           
-  
+            </Frame>
+            <Frame
+                Grid.Row="1"
+                BackgroundColor="#ef5265"
+                CornerRadius="20"
+                HeightRequest="30"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="End">
+
+                <Grid VerticalOptions="Start">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="AUTO" />
+                    </Grid.RowDefinitions>
+
+                </Grid>
+
+            </Frame>
+
+            <Button
+                x:Name="MountainMenu"
+                Grid.Row="1"
+                BackgroundColor="Transparent"
+                Clicked="MountainMenu_Clicked"
+                HeightRequest="80"
+                HorizontalOptions="Center"
+                ImageSource="MountainIcon"
+                TranslationX="-100"
+                TranslationY="0"
+                VerticalOptions="Center"
+                WidthRequest="100">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup Name="MenuPressed">
+                        <VisualState Name="PressedMenu">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="#e5354b" />
+                                <Setter Property="TranslationY" Value="-20" />
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState Name="UnPressedMenu">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="Transparent" />
+                                <Setter Property="TranslationY" Value="0" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </Button>
+
+            <Button
+                x:Name="BusMenu"
+                Grid.Row="1"
+                BackgroundColor="Transparent"
+                Clicked="BusMenu_Clicked"
+                HeightRequest="80"
+                HorizontalOptions="Center"
+                ImageSource="BusIcon"
+                TranslationY="0"
+                VerticalOptions="Center"
+                WidthRequest="100">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup Name="MenuPressed">
+                        <VisualState Name="PressedMenu">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="#e5354b" />
+                                <Setter Property="TranslationY" Value="-20" />
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState Name="UnPressedMenu">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="Transparent" />
+                                <Setter Property="TranslationY" Value="0" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </Button>
+
+            <Button
+                x:Name="MsgMenu"
+                Grid.Row="1"
+                BackgroundColor="Transparent"
+                Clicked="MsgMenu_Clicked"
+                HeightRequest="80"
+                HorizontalOptions="Center"
+                ImageSource="MsgIcon"
+                TranslationX="100"
+                TranslationY="0"
+                VerticalOptions="Center"
+                WidthRequest="100">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup Name="MenuPressed">
+                        <VisualState Name="PressedMenu">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="#e5354b" />
+                                <Setter Property="TranslationY" Value="-20" />
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState Name="UnPressedMenu">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="Transparent" />
+                                <Setter Property="TranslationY" Value="0" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </Button>
+
         </Grid>
     </ContentPage.Content>
 </ContentPage>
